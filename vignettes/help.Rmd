@@ -1,0 +1,148 @@
+---
+title: "help"
+author: "Aurelien Chateigner"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{help}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+# Introduction
+
+This vignette exists as help is limited by CRAN to 5 seconds runs, and it
+depends a lot on user's connection. It will also explain the advance use of the
+package.
+
+# Using `anyLib`
+
+## Loading the package
+
+To load `anyLib`, simply :
+```{r loading anyLib}
+library(anyLib)
+```
+
+For the purpose of the demonstration, installations in this vignette are done
+in a dummy library:
+```{r dummy folder}
+lib <- normalizePath(tempdir(), "/")
+f1 <- paste(lib, "folder1", sep = "/")
+dir.create(f1)
+.libPaths(f1)
+```
+
+```{r save packages, include=FALSE}
+foo <- .packages()
+```
+
+
+The package requires `devtools` `withr` and `BiocInstaller` so to install them:
+```{r installation of the dependencies}
+utils::chooseCRANmirror(graphics = FALSE, 1)
+install.packages("devtools")
+source("https://bioconductor.org/biocLite.R")
+biocLite()
+```
+
+## Install and load 1 package
+
+### CRAN package
+
+So, if one wants to install a simple CRAN package and load it, simply:
+
+```{r install and load a simple CRAN package}
+anyLib("apercu")
+```
+
+### Bioconductor package
+
+For a Bioconductor package:
+
+```{r install and load a simple Bioconductor package}
+anyLib("limma")
+```
+
+### github package
+
+And for github, to install, one needs the name in the format
+"maintainerName/packageName":
+```{r install and load a simple github package}
+anyLib("achateigner/dummyPackage")
+```
+
+But to load it once installed, one only needs its name:
+```{r only load a github package}
+anyLib("dummyPackage")
+```
+
+## Install and load a list of packages
+
+```{r reload, include=FALSE}
+bar <- .packages()
+foobar <- setdiff(bar, foo)
+toRemove <- paste0("package:", foobar)
+for(i in seq_along(foobar)) {           
+    detach(toRemove[i], character.only=TRUE)    
+}
+```
+
+
+To install and load a list of packages, from various places, with the names. I
+install them in a different folder:
+```{r install and load from various places}
+f2 <- paste(lib, "folder2", sep = "/")
+dir.create(f2)
+anyLib(list("apercu", "limma", "achateigner/dummyPackage"), lib = f2,
+       loadLib = f2)
+```
+
+To install and load from a list of packages in an object:
+```{r reload2, include=FALSE}
+bar <- .packages()
+foobar <- setdiff(bar, foo)
+toRemove <- paste0("package:", foobar)
+for(i in seq_along(foobar)) {           
+    detach(toRemove[i], character.only=TRUE)    
+}
+```
+
+```{r install and load from list}
+f3 <- paste(lib, "folder3", sep = "/")
+dir.create(f3)
+packagesNeeded <- list("apercu", "limma", "achateigner/dummyPackage")
+anyLib(packagesNeeded, lib = f3, loadLib = f3)
+```
+
+## Advanced options
+
+If one wants to reinstall a package or force the update (`force = TRUE`), not
+update the Bioconductor packages (`autoUpdate = FALSE`), install in a different
+lib and load from a set of libs:
+```{r reload3, include=FALSE}
+bar <- .packages()
+foobar <- setdiff(bar, foo)
+toRemove <- paste0("package:", foobar)
+for(i in seq_along(foobar)) {           
+    detach(toRemove[i], character.only=TRUE)    
+}
+```
+
+```{r advanced options}
+f4 <- paste(lib, "folder4", sep = "/")
+dir.create(f4)
+anyLib(packagesNeeded,
+       force = TRUE,
+       autoUpdate = FALSE,
+       lib = f4,
+       loadLib = c(f1, f4))
+
+```
