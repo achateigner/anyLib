@@ -5,7 +5,7 @@
 \title{Install and load any library}
 \usage{
 anyLib(pkg, force = FALSE, autoUpdate = TRUE, lib = .libPaths()[1],
-  loadLib = .libPaths())
+  loadLib = .libPaths(), source = FALSE)
 }
 \arguments{
 \item{pkg}{The package name or the list containing the packages names.}
@@ -17,6 +17,8 @@ anyLib(pkg, force = FALSE, autoUpdate = TRUE, lib = .libPaths()[1],
 \item{lib}{Where to install the packages}
 
 \item{loadLib}{From where the packages are loaded}
+
+\item{source}{The package to install is a local source file, on the user disk.}
 }
 \value{
 A named vector of booleans showing if the package is loaded properly
@@ -30,11 +32,15 @@ to install it. However, once installed you only need the name of the package.
 For more details see the help vignette:
 \code{vignette("help", package = "anyLib")}
 }
+\details{
+The source option can be a single TRUE or FALSE, or a vector of TRUE
+and FALSE corresponding to the vector/list of packages. E.g. if
+source == c(TRUE, FALSE), the first package will be considered as a source
+file. The file has to be a tar.gz source file, not a binary.
+}
 \examples{
-# Install and load 1 package from github, which name is in an object:
+# Install and load 1 package from a local source file, which name is in an object:
 lib <- normalizePath(tempdir(), "/")
-listOfPackages <- list("achateigner/dummyPackage")
-anyLib(listOfPackages, force = TRUE, autoUpdate = FALSE, lib = lib)
-# Once the github packages are installed, you only need their names to load:
-anyLib("dummyPackage")
+listOfPackages <- list("inst/dummyPackage_0.1.0.tar.gz")
+anyLib(listOfPackages, force = TRUE, autoUpdate = FALSE, lib = lib, source = TRUE)
 }

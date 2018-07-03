@@ -19,17 +19,22 @@ foo <- .packages()
 ## ----installation of the dependencies------------------------------------
 utils::chooseCRANmirror(graphics = FALSE, 1)
 install.packages("devtools")
+library(devtools)
 source("https://bioconductor.org/biocLite.R")
-biocLite()
+biocLite(ask = FALSE, suppressAutoUpdate = TRUE)
 
 ## ----install and load a simple CRAN package------------------------------
 anyLib("apercu")
+
+## ----install a load a source package-------------------------------------
+anyLib(system.file("dummyPackage_0.1.0.tar.gz", package = "anyLib"),
+       source = TRUE)
 
 ## ----install and load a simple Bioconductor package----------------------
 anyLib("limma")
 
 ## ----install and load a simple github package----------------------------
-anyLib("achateigner/dummyPackage")
+anyLib("achateigner/dummyPackage", force = TRUE)
 
 ## ----only load a github package------------------------------------------
 anyLib("dummyPackage")
@@ -38,8 +43,8 @@ anyLib("dummyPackage")
 bar <- .packages()
 foobar <- setdiff(bar, foo)
 toRemove <- paste0("package:", foobar)
-for(i in seq_along(foobar)) {           
-    detach(toRemove[i], character.only=TRUE)    
+for (i in seq_along(foobar)) {           
+    detach(toRemove[i], character.only = TRUE)    
 }
 
 ## ----install and load from various places--------------------------------
@@ -52,8 +57,8 @@ anyLib(list("apercu", "limma", "achateigner/dummyPackage"), lib = f2,
 bar <- .packages()
 foobar <- setdiff(bar, foo)
 toRemove <- paste0("package:", foobar)
-for(i in seq_along(foobar)) {           
-    detach(toRemove[i], character.only=TRUE)    
+for (i in seq_along(foobar)) {           
+    detach(toRemove[i], character.only = TRUE)    
 }
 
 ## ----install and load from list------------------------------------------
@@ -66,8 +71,8 @@ anyLib(packagesNeeded, lib = f3, loadLib = f3)
 bar <- .packages()
 foobar <- setdiff(bar, foo)
 toRemove <- paste0("package:", foobar)
-for(i in seq_along(foobar)) {           
-    detach(toRemove[i], character.only=TRUE)    
+for (i in seq_along(foobar)) {           
+    detach(toRemove[i], character.only = TRUE)    
 }
 
 ## ----advanced options----------------------------------------------------
