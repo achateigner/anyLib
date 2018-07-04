@@ -12,7 +12,7 @@
 
 <meta name="author" content="Aurelien Chateigner" />
 
-<meta name="date" content="2018-07-03" />
+<meta name="date" content="2018-07-04" />
 
 <title>help</title>
 
@@ -70,7 +70,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <h1 class="title toc-ignore">help</h1>
 <h4 class="author"><em>Aurelien Chateigner</em></h4>
-<h4 class="date"><em>2018-07-03</em></h4>
+<h4 class="date"><em>2018-07-04</em></h4>
 
 
 
@@ -89,100 +89,54 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 f1 &lt;-<span class="st"> </span><span class="kw">paste</span>(lib, <span class="st">&quot;folder1&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;/&quot;</span>)
 <span class="kw">dir.create</span>(f1)
 <span class="kw">.libPaths</span>(f1)</code></pre></div>
-<p>The package requires <code>devtools</code> <code>withr</code> and <code>BiocInstaller</code> so to install them:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">utils<span class="op">::</span><span class="kw">chooseCRANmirror</span>(<span class="dt">graphics =</span> <span class="ot">FALSE</span>, <span class="dv">1</span>)
-<span class="kw">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)
-<span class="co">#&gt; Installing package into 'C:/Users/achateigner/AppData/Local/Temp/RtmpchXzl4/folder1'</span>
-<span class="co">#&gt; (as 'lib' is unspecified)</span>
-<span class="co">#&gt; also installing the dependencies 'mime', 'curl', 'openssl', 'R6', 'httr', 'memoise', 'whisker', 'digest', 'rstudioapi', 'git2r', 'withr'</span>
-<span class="co">#&gt; package 'mime' successfully unpacked and MD5 sums checked</span>
-<span class="co">#&gt; package 'curl' successfully unpacked and MD5 sums checked</span>
-<span class="co">#&gt; package 'openssl' successfully unpacked and MD5 sums checked</span>
-<span class="co">#&gt; package 'R6' successfully unpacked and MD5 sums checked</span>
-<span class="co">#&gt; package 'httr' successfully unpacked and MD5 sums checked</span>
-<span class="co">#&gt; package 'memoise' successfully unpacked and MD5 sums checked</span>
-<span class="co">#&gt; package 'whisker' successfully unpacked and MD5 sums checked</span>
-<span class="co">#&gt; package 'digest' successfully unpacked and MD5 sums checked</span>
-<span class="co">#&gt; package 'rstudioapi' successfully unpacked and MD5 sums checked</span>
-<span class="co">#&gt; package 'git2r' successfully unpacked and MD5 sums checked</span>
-<span class="co">#&gt; package 'withr' successfully unpacked and MD5 sums checked</span>
-<span class="co">#&gt; package 'devtools' successfully unpacked and MD5 sums checked</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; The downloaded binary packages are in</span>
-<span class="co">#&gt;  C:\Users\achateigner\AppData\Local\Temp\RtmpchXzl4\downloaded_packages</span>
-<span class="kw">library</span>(devtools)
-<span class="kw">source</span>(<span class="st">&quot;https://bioconductor.org/biocLite.R&quot;</span>)
-<span class="co">#&gt; Installing package into 'C:/Users/achateigner/AppData/Local/Temp/RtmpchXzl4/folder1'</span>
-<span class="co">#&gt; (as 'lib' is unspecified)</span>
-<span class="co">#&gt; package 'BiocInstaller' successfully unpacked and MD5 sums checked</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; The downloaded binary packages are in</span>
-<span class="co">#&gt;  C:\Users\achateigner\AppData\Local\Temp\RtmpchXzl4\downloaded_packages</span>
-<span class="co">#&gt; Bioconductor version 3.7 (BiocInstaller 1.30.0), ?biocLite for help</span>
-<span class="kw">biocLite</span>(<span class="dt">ask =</span> <span class="ot">FALSE</span>, <span class="dt">suppressAutoUpdate =</span> <span class="ot">TRUE</span>)
-<span class="co">#&gt; BioC_mirror: https://bioconductor.org</span>
-<span class="co">#&gt; Using Bioconductor 3.7 (BiocInstaller 1.30.0), R 3.5.0 (2018-04-23).</span>
-<span class="co">#&gt; Installing package(s) 'Biobase', 'IRanges', 'AnnotationDbi'</span>
-<span class="co">#&gt; also installing the dependencies 'magrittr', 'assertthat', 'bit', 'prettyunits', 'bit64', 'blob', 'pkgconfig', 'Rcpp', 'BH', 'plogr', 'BiocGenerics', 'S4Vectors', 'DBI', 'RSQLite'</span>
-<span class="co">#&gt; package 'magrittr' successfully unpacked and MD5 sums checked</span>
-<span class="co">#&gt; package 'assertthat' successfully unpacked and MD5 sums checked</span>
-<span class="co">#&gt; package 'bit' successfully unpacked and MD5 sums checked</span>
-<span class="co">#&gt; package 'prettyunits' successfully unpacked and MD5 sums checked</span>
-<span class="co">#&gt; package 'bit64' successfully unpacked and MD5 sums checked</span>
-<span class="co">#&gt; package 'blob' successfully unpacked and MD5 sums checked</span>
-<span class="co">#&gt; package 'pkgconfig' successfully unpacked and MD5 sums checked</span>
-<span class="co">#&gt; package 'Rcpp' successfully unpacked and MD5 sums checked</span>
-<span class="co">#&gt; package 'BH' successfully unpacked and MD5 sums checked</span>
-<span class="co">#&gt; package 'plogr' successfully unpacked and MD5 sums checked</span>
-<span class="co">#&gt; package 'BiocGenerics' successfully unpacked and MD5 sums checked</span>
-<span class="co">#&gt; package 'S4Vectors' successfully unpacked and MD5 sums checked</span>
-<span class="co">#&gt; package 'DBI' successfully unpacked and MD5 sums checked</span>
-<span class="co">#&gt; package 'RSQLite' successfully unpacked and MD5 sums checked</span>
-<span class="co">#&gt; package 'Biobase' successfully unpacked and MD5 sums checked</span>
-<span class="co">#&gt; package 'IRanges' successfully unpacked and MD5 sums checked</span>
-<span class="co">#&gt; package 'AnnotationDbi' successfully unpacked and MD5 sums checked</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; The downloaded binary packages are in</span>
-<span class="co">#&gt;  C:\Users\achateigner\AppData\Local\Temp\RtmpchXzl4\downloaded_packages</span></code></pre></div>
 </div>
 <div id="install-and-load-1-package" class="section level2">
 <h2>Install and load 1 package</h2>
 <div id="cran-package" class="section level3">
 <h3>CRAN package</h3>
 <p>So, if one wants to install a simple CRAN package and load it, simply:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">anyLib</span>(<span class="st">&quot;apercu&quot;</span>)
-<span class="co">#&gt; also installing the dependencies 'cli', 'crayon', 'praise', 'rlang', 'pls', 'testthat'</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">anyLib</span>(<span class="st">&quot;apercu&quot;</span>, <span class="dt">lib =</span> f1)
+<span class="co">#&gt; also installing the dependencies 'assertthat', 'cli', 'crayon', 'digest', 'magrittr', 'praise', 'R6', 'rlang', 'withr', 'pls', 'testthat'</span>
+<span class="co">#&gt; package 'assertthat' successfully unpacked and MD5 sums checked</span>
 <span class="co">#&gt; package 'cli' successfully unpacked and MD5 sums checked</span>
 <span class="co">#&gt; package 'crayon' successfully unpacked and MD5 sums checked</span>
+<span class="co">#&gt; package 'digest' successfully unpacked and MD5 sums checked</span>
+<span class="co">#&gt; package 'magrittr' successfully unpacked and MD5 sums checked</span>
 <span class="co">#&gt; package 'praise' successfully unpacked and MD5 sums checked</span>
+<span class="co">#&gt; package 'R6' successfully unpacked and MD5 sums checked</span>
 <span class="co">#&gt; package 'rlang' successfully unpacked and MD5 sums checked</span>
+<span class="co">#&gt; package 'withr' successfully unpacked and MD5 sums checked</span>
 <span class="co">#&gt; package 'pls' successfully unpacked and MD5 sums checked</span>
 <span class="co">#&gt; package 'testthat' successfully unpacked and MD5 sums checked</span>
 <span class="co">#&gt; package 'apercu' successfully unpacked and MD5 sums checked</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; The downloaded binary packages are in</span>
-<span class="co">#&gt;  C:\Users\achateigner\AppData\Local\Temp\RtmpchXzl4\downloaded_packages</span>
+<span class="co">#&gt;  C:\Users\achateigner\AppData\Local\Temp\RtmpaeDEhf\downloaded_packages</span>
 <span class="co">#&gt; Le chargement a nécessité le package : apercu</span>
+<span class="co">#&gt; Warning: le package 'apercu' a été compilé avec la version R 3.5.1</span>
 <span class="co">#&gt; apercu </span>
 <span class="co">#&gt;   TRUE</span></code></pre></div>
 </div>
-<div id="bioconductor-package" class="section level3">
-<h3>Bioconductor package</h3>
+<div id="source-package" class="section level3">
+<h3>Source package</h3>
 <p>For a source package:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">anyLib</span>(<span class="kw">system.file</span>(<span class="st">&quot;dummyPackage_0.1.0.tar.gz&quot;</span>, <span class="dt">package =</span> <span class="st">&quot;anyLib&quot;</span>),
-       <span class="dt">source =</span> <span class="ot">TRUE</span>)
+       <span class="dt">source =</span> <span class="ot">TRUE</span>, <span class="dt">lib =</span> f1, <span class="dt">loadLib =</span> f1)
 <span class="co">#&gt; Le chargement a nécessité le package : dummyPackage</span>
 <span class="co">#&gt; dummyPackage </span>
 <span class="co">#&gt;         TRUE</span></code></pre></div>
+</div>
+<div id="bioconductor-package" class="section level3">
+<h3>Bioconductor package</h3>
 <p>For a Bioconductor package:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">anyLib</span>(<span class="st">&quot;limma&quot;</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">anyLib</span>(<span class="st">&quot;limma&quot;</span>, <span class="dt">lib =</span> f1, <span class="dt">loadLib =</span> f1)
 <span class="co">#&gt; BioC_mirror: https://bioconductor.org</span>
 <span class="co">#&gt; Using Bioconductor 3.7 (BiocInstaller 1.30.0), R 3.5.0 (2018-04-23).</span>
 <span class="co">#&gt; Installing package(s) 'limma'</span>
 <span class="co">#&gt; package 'limma' successfully unpacked and MD5 sums checked</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; The downloaded binary packages are in</span>
-<span class="co">#&gt;  C:\Users\achateigner\AppData\Local\Temp\RtmpchXzl4\downloaded_packages</span>
+<span class="co">#&gt;  C:\Users\achateigner\AppData\Local\Temp\RtmpaeDEhf\downloaded_packages</span>
 <span class="co">#&gt; Le chargement a nécessité le package : limma</span>
 <span class="co">#&gt; limma </span>
 <span class="co">#&gt;  TRUE</span></code></pre></div>
@@ -190,21 +144,21 @@ f1 &lt;-<span class="st"> </span><span class="kw">paste</span>(lib, <span class=
 <div id="github-package" class="section level3">
 <h3>github package</h3>
 <p>And for github, to install, one needs the name in the format “maintainerName/packageName”:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">anyLib</span>(<span class="st">&quot;achateigner/dummyPackage&quot;</span>, <span class="dt">force =</span> <span class="ot">TRUE</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">anyLib</span>(<span class="st">&quot;achateigner/dummyPackage&quot;</span>, <span class="dt">force =</span> <span class="ot">TRUE</span>, <span class="dt">lib =</span> f1, <span class="dt">loadLib =</span> f1)
 <span class="co">#&gt; Downloading GitHub repo achateigner/dummyPackage@master</span>
 <span class="co">#&gt; from URL https://api.github.com/repos/achateigner/dummyPackage/zipball/master</span>
 <span class="co">#&gt; Installing dummyPackage</span>
 <span class="co">#&gt; &quot;C:/PROGRA~1/R/R-35~1.0/bin/x64/R&quot; --no-site-file --no-environ --no-save  \</span>
 <span class="co">#&gt;   --no-restore --quiet CMD INSTALL  \</span>
-<span class="co">#&gt;   &quot;C:/Users/achateigner/AppData/Local/Temp/RtmpchXzl4/devtools17a04df03995/achateigner-dummyPackage-edf8279&quot;  \</span>
-<span class="co">#&gt;   --library=&quot;C:/Users/achateigner/AppData/Local/Temp/RtmpchXzl4/folder1&quot;  \</span>
+<span class="co">#&gt;   &quot;C:/Users/achateigner/AppData/Local/Temp/RtmpaeDEhf/devtools128c3d7a760a/achateigner-dummyPackage-edf8279&quot;  \</span>
+<span class="co">#&gt;   --library=&quot;C:/Users/achateigner/AppData/Local/Temp/RtmpaeDEhf/folder1&quot;  \</span>
 <span class="co">#&gt;   --install-tests</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Reloading installed dummyPackage</span>
 <span class="co">#&gt; dummyPackage </span>
 <span class="co">#&gt;         TRUE</span></code></pre></div>
 <p>But to load it once installed, one only needs its name:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">anyLib</span>(<span class="st">&quot;dummyPackage&quot;</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">anyLib</span>(<span class="st">&quot;dummyPackage&quot;</span>, <span class="dt">lib =</span> f1, <span class="dt">loadLib =</span> f1)
 <span class="co">#&gt; dummyPackage </span>
 <span class="co">#&gt;         TRUE</span></code></pre></div>
 </div>
@@ -219,24 +173,25 @@ f1 &lt;-<span class="st"> </span><span class="kw">paste</span>(lib, <span class=
 <span class="co">#&gt; package 'apercu' successfully unpacked and MD5 sums checked</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; The downloaded binary packages are in</span>
-<span class="co">#&gt;  C:\Users\achateigner\AppData\Local\Temp\RtmpchXzl4\downloaded_packages</span>
+<span class="co">#&gt;  C:\Users\achateigner\AppData\Local\Temp\RtmpaeDEhf\downloaded_packages</span>
 <span class="co">#&gt; BioC_mirror: https://bioconductor.org</span>
 <span class="co">#&gt; Using Bioconductor 3.7 (BiocInstaller 1.30.0), R 3.5.0 (2018-04-23).</span>
 <span class="co">#&gt; Installing package(s) 'limma'</span>
 <span class="co">#&gt; package 'limma' successfully unpacked and MD5 sums checked</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; The downloaded binary packages are in</span>
-<span class="co">#&gt;  C:\Users\achateigner\AppData\Local\Temp\RtmpchXzl4\downloaded_packages</span>
+<span class="co">#&gt;  C:\Users\achateigner\AppData\Local\Temp\RtmpaeDEhf\downloaded_packages</span>
 <span class="co">#&gt; Downloading GitHub repo achateigner/dummyPackage@master</span>
 <span class="co">#&gt; from URL https://api.github.com/repos/achateigner/dummyPackage/zipball/master</span>
 <span class="co">#&gt; Installing dummyPackage</span>
 <span class="co">#&gt; &quot;C:/PROGRA~1/R/R-35~1.0/bin/x64/R&quot; --no-site-file --no-environ --no-save  \</span>
 <span class="co">#&gt;   --no-restore --quiet CMD INSTALL  \</span>
-<span class="co">#&gt;   &quot;C:/Users/achateigner/AppData/Local/Temp/RtmpchXzl4/devtools17a0613c61ea/achateigner-dummyPackage-edf8279&quot;  \</span>
-<span class="co">#&gt;   --library=&quot;C:/Users/achateigner/AppData/Local/Temp/RtmpchXzl4/folder2&quot;  \</span>
+<span class="co">#&gt;   &quot;C:/Users/achateigner/AppData/Local/Temp/RtmpaeDEhf/devtools128c3d015422/achateigner-dummyPackage-edf8279&quot;  \</span>
+<span class="co">#&gt;   --library=&quot;C:/Users/achateigner/AppData/Local/Temp/RtmpaeDEhf/folder2&quot;  \</span>
 <span class="co">#&gt;   --install-tests</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Le chargement a nécessité le package : apercu</span>
+<span class="co">#&gt; Warning: le package 'apercu' a été compilé avec la version R 3.5.1</span>
 <span class="co">#&gt; Le chargement a nécessité le package : limma</span>
 <span class="co">#&gt; Le chargement a nécessité le package : dummyPackage</span>
 <span class="co">#&gt;       apercu        limma dummyPackage </span>
@@ -249,24 +204,25 @@ packagesNeeded &lt;-<span class="st"> </span><span class="kw">list</span>(<span 
 <span class="co">#&gt; package 'apercu' successfully unpacked and MD5 sums checked</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; The downloaded binary packages are in</span>
-<span class="co">#&gt;  C:\Users\achateigner\AppData\Local\Temp\RtmpchXzl4\downloaded_packages</span>
+<span class="co">#&gt;  C:\Users\achateigner\AppData\Local\Temp\RtmpaeDEhf\downloaded_packages</span>
 <span class="co">#&gt; BioC_mirror: https://bioconductor.org</span>
 <span class="co">#&gt; Using Bioconductor 3.7 (BiocInstaller 1.30.0), R 3.5.0 (2018-04-23).</span>
 <span class="co">#&gt; Installing package(s) 'limma'</span>
 <span class="co">#&gt; package 'limma' successfully unpacked and MD5 sums checked</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; The downloaded binary packages are in</span>
-<span class="co">#&gt;  C:\Users\achateigner\AppData\Local\Temp\RtmpchXzl4\downloaded_packages</span>
+<span class="co">#&gt;  C:\Users\achateigner\AppData\Local\Temp\RtmpaeDEhf\downloaded_packages</span>
 <span class="co">#&gt; Downloading GitHub repo achateigner/dummyPackage@master</span>
 <span class="co">#&gt; from URL https://api.github.com/repos/achateigner/dummyPackage/zipball/master</span>
 <span class="co">#&gt; Installing dummyPackage</span>
 <span class="co">#&gt; &quot;C:/PROGRA~1/R/R-35~1.0/bin/x64/R&quot; --no-site-file --no-environ --no-save  \</span>
 <span class="co">#&gt;   --no-restore --quiet CMD INSTALL  \</span>
-<span class="co">#&gt;   &quot;C:/Users/achateigner/AppData/Local/Temp/RtmpchXzl4/devtools17a076e552d0/achateigner-dummyPackage-edf8279&quot;  \</span>
-<span class="co">#&gt;   --library=&quot;C:/Users/achateigner/AppData/Local/Temp/RtmpchXzl4/folder3&quot;  \</span>
+<span class="co">#&gt;   &quot;C:/Users/achateigner/AppData/Local/Temp/RtmpaeDEhf/devtools128c1df84cf4/achateigner-dummyPackage-edf8279&quot;  \</span>
+<span class="co">#&gt;   --library=&quot;C:/Users/achateigner/AppData/Local/Temp/RtmpaeDEhf/folder3&quot;  \</span>
 <span class="co">#&gt;   --install-tests</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Le chargement a nécessité le package : apercu</span>
+<span class="co">#&gt; Warning: le package 'apercu' a été compilé avec la version R 3.5.1</span>
 <span class="co">#&gt; Le chargement a nécessité le package : limma</span>
 <span class="co">#&gt; Le chargement a nécessité le package : dummyPackage</span>
 <span class="co">#&gt;       apercu        limma dummyPackage </span>
@@ -285,24 +241,25 @@ packagesNeeded &lt;-<span class="st"> </span><span class="kw">list</span>(<span 
 <span class="co">#&gt; package 'apercu' successfully unpacked and MD5 sums checked</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; The downloaded binary packages are in</span>
-<span class="co">#&gt;  C:\Users\achateigner\AppData\Local\Temp\RtmpchXzl4\downloaded_packages</span>
+<span class="co">#&gt;  C:\Users\achateigner\AppData\Local\Temp\RtmpaeDEhf\downloaded_packages</span>
 <span class="co">#&gt; BioC_mirror: https://bioconductor.org</span>
 <span class="co">#&gt; Using Bioconductor 3.7 (BiocInstaller 1.30.0), R 3.5.0 (2018-04-23).</span>
 <span class="co">#&gt; Installing package(s) 'limma'</span>
 <span class="co">#&gt; package 'limma' successfully unpacked and MD5 sums checked</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; The downloaded binary packages are in</span>
-<span class="co">#&gt;  C:\Users\achateigner\AppData\Local\Temp\RtmpchXzl4\downloaded_packages</span>
+<span class="co">#&gt;  C:\Users\achateigner\AppData\Local\Temp\RtmpaeDEhf\downloaded_packages</span>
 <span class="co">#&gt; Downloading GitHub repo achateigner/dummyPackage@master</span>
 <span class="co">#&gt; from URL https://api.github.com/repos/achateigner/dummyPackage/zipball/master</span>
 <span class="co">#&gt; Installing dummyPackage</span>
 <span class="co">#&gt; &quot;C:/PROGRA~1/R/R-35~1.0/bin/x64/R&quot; --no-site-file --no-environ --no-save  \</span>
 <span class="co">#&gt;   --no-restore --quiet CMD INSTALL  \</span>
-<span class="co">#&gt;   &quot;C:/Users/achateigner/AppData/Local/Temp/RtmpchXzl4/devtools17a0583b4a14/achateigner-dummyPackage-edf8279&quot;  \</span>
-<span class="co">#&gt;   --library=&quot;C:/Users/achateigner/AppData/Local/Temp/RtmpchXzl4/folder4&quot;  \</span>
+<span class="co">#&gt;   &quot;C:/Users/achateigner/AppData/Local/Temp/RtmpaeDEhf/devtools128c353d5556/achateigner-dummyPackage-edf8279&quot;  \</span>
+<span class="co">#&gt;   --library=&quot;C:/Users/achateigner/AppData/Local/Temp/RtmpaeDEhf/folder4&quot;  \</span>
 <span class="co">#&gt;   --install-tests</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Le chargement a nécessité le package : apercu</span>
+<span class="co">#&gt; Warning: le package 'apercu' a été compilé avec la version R 3.5.1</span>
 <span class="co">#&gt; Le chargement a nécessité le package : limma</span>
 <span class="co">#&gt; Le chargement a nécessité le package : dummyPackage</span>
 <span class="co">#&gt;       apercu        limma dummyPackage </span>

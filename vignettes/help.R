@@ -16,28 +16,21 @@ dir.create(f1)
 ## ----save packages, include=FALSE----------------------------------------
 foo <- .packages()
 
-## ----installation of the dependencies------------------------------------
-utils::chooseCRANmirror(graphics = FALSE, 1)
-install.packages("devtools")
-library(devtools)
-source("https://bioconductor.org/biocLite.R")
-biocLite(ask = FALSE, suppressAutoUpdate = TRUE)
-
 ## ----install and load a simple CRAN package------------------------------
-anyLib("apercu")
+anyLib("apercu", lib = f1)
 
 ## ----install a load a source package-------------------------------------
 anyLib(system.file("dummyPackage_0.1.0.tar.gz", package = "anyLib"),
-       source = TRUE)
+       source = TRUE, lib = f1, loadLib = f1)
 
 ## ----install and load a simple Bioconductor package----------------------
-anyLib("limma")
+anyLib("limma", lib = f1, loadLib = f1)
 
 ## ----install and load a simple github package----------------------------
-anyLib("achateigner/dummyPackage", force = TRUE)
+anyLib("achateigner/dummyPackage", force = TRUE, lib = f1, loadLib = f1)
 
 ## ----only load a github package------------------------------------------
-anyLib("dummyPackage")
+anyLib("dummyPackage", lib = f1, loadLib = f1)
 
 ## ----reload, include=FALSE-----------------------------------------------
 bar <- .packages()

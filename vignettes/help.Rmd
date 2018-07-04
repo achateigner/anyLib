@@ -44,16 +44,6 @@ dir.create(f1)
 foo <- .packages()
 ```
 
-
-The package requires `devtools` `withr` and `BiocInstaller` so to install them:
-```{r installation of the dependencies}
-utils::chooseCRANmirror(graphics = FALSE, 1)
-install.packages("devtools")
-library(devtools)
-source("https://bioconductor.org/biocLite.R")
-biocLite(ask = FALSE, suppressAutoUpdate = TRUE)
-```
-
 ## Install and load 1 package
 
 ### CRAN package
@@ -61,22 +51,23 @@ biocLite(ask = FALSE, suppressAutoUpdate = TRUE)
 So, if one wants to install a simple CRAN package and load it, simply:
 
 ```{r install and load a simple CRAN package}
-anyLib("apercu")
+anyLib("apercu", lib = f1)
 ```
 
-### Bioconductor package
+### Source package
 
 For a source package:
 ```{r install a load a source package}
 anyLib(system.file("dummyPackage_0.1.0.tar.gz", package = "anyLib"),
-       source = TRUE)
+       source = TRUE, lib = f1, loadLib = f1)
 ```
 
+### Bioconductor package
 
 For a Bioconductor package:
 
 ```{r install and load a simple Bioconductor package}
-anyLib("limma")
+anyLib("limma", lib = f1, loadLib = f1)
 ```
 
 ### github package
@@ -84,12 +75,12 @@ anyLib("limma")
 And for github, to install, one needs the name in the format
 "maintainerName/packageName":
 ```{r install and load a simple github package}
-anyLib("achateigner/dummyPackage", force = TRUE)
+anyLib("achateigner/dummyPackage", force = TRUE, lib = f1, loadLib = f1)
 ```
 
 But to load it once installed, one only needs its name:
 ```{r only load a github package}
-anyLib("dummyPackage")
+anyLib("dummyPackage", lib = f1, loadLib = f1)
 ```
 
 ## Install and load a list of packages
