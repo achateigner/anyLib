@@ -41,6 +41,6 @@ file. The file has to be a tar.gz source file, not a binary.
 \examples{
 # Install and load 1 package from a local source file, which name is in an object:
 lib <- normalizePath(tempdir(), "/")
-listOfPackages <- list("inst/dummyPackage_0.1.0.tar.gz")
+listOfPackages <- system.file("dummyPackage_0.1.0.tar.gz", package="anyLib")
 anyLib(listOfPackages, force = TRUE, autoUpdate = FALSE, lib = lib, source = TRUE)
 }
