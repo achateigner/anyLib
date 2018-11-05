@@ -75,8 +75,8 @@ anyLib <- function(pkg, force = FALSE, autoUpdate = TRUE, lib = .libPaths()[1],
                                             p, utils::available.packages()[,1])))]
         }
         if (length(new.pkg)) {
-            try(BiocInstaller::biocLite(new.pkg, ask = FALSE,
-                                        suppressAutoUpdate = !autoUpdate,
+            try(BiocManager::install(new.pkg, ask = FALSE,
+                                        update = autoUpdate,
                                         lib = lib))
         }
         # Install github packages

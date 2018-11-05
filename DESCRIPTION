@@ -1,7 +1,7 @@
 Package: anyLib
 Type: Package
 Title: Install and Load Any Package from CRAN, Bioconductor or Github
-Version: 1.0.4
+Version: 1.0.5
 Authors@R: c(person("Aurelien", "Chateigner", role = c("aut", "cre"),
                      email = "aurelien.chateigner@gmail.com"))
 Description: Made to make your life simpler with packages, by
@@ -14,7 +14,7 @@ Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.0.1
 biocViews: 
-Imports: devtools, withr, BiocInstaller, httr, curl
+Imports: devtools, withr, BiocManager, httr, curl
 Suggests: knitr,
     rmarkdown,
     testthat
